@@ -1,12 +1,6 @@
 import React from "react";
 
 class ListItem extends React.PureComponent {
-    remove = () => {
-        const {id, remove} = this.props;
-
-        remove(id);
-    };
-
     render() {
         const {id, text, active, remove} = this.props;
 
@@ -17,7 +11,7 @@ class ListItem extends React.PureComponent {
                 <span>{text}</span>|
                 {
                     active ? (
-                        <span onClick={this.remove}>+</span>
+                        <span onClick={() => remove(id)}>+</span>
                     ) : undefined
                 }
             </div>

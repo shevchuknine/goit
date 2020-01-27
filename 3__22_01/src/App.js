@@ -7,20 +7,25 @@ import {Example} from "./components/Example";
 import ListItem from "./components/ListItem";
 import Button from "./components/Button";
 
-class App extends Component {
+let count = 1;
+
+class App extends React.PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
             list: [{
-                text: "example item 0",
+                id: 1,
+                text: "example item 1",
                 active: true
             }]
         };
     }
 
     add = () => {
+        console.log("add");
 
+        count++;
 
         // так делать нельзя!
         // const {list} = this.state;
@@ -29,13 +34,24 @@ class App extends Component {
         //     active: Math.random() > 0.5
         // });
 
+        // const {list} = this.state;
+        //
+        // list.push({
+        //     id: count,
+        //     text: `example item ${count}`,
+        //     active: Math.random() > 0.5
+        // });
+        //
+        // this.setState(ps => ({list}));
+
         this.setState((ps) => {
             const {list} = ps;
 
             return (
                 {
                     list: list.concat({
-                        text: `example item ${Math.random()}`,
+                        id: count,
+                        text: `example item ${count}`,
                         active: Math.random() > 0.5
                     })
                 }
@@ -43,12 +59,12 @@ class App extends Component {
         });
     };
 
-    remove = (indexToDelete) => {
+    remove = (idToDelete) => {
         this.setState((ps) => {
             const {list} = ps;
 
             return {
-                list: list.filter((i, index) => index !== indexToDelete)
+                list: list.filter((item) => item.id !== idToDelete)
             };
         })
     };
@@ -62,13 +78,13 @@ class App extends Component {
                 />
                 <div>
                     {
-                        list.map((item, index) => {
+                        list.map((item) => {
                             return (
-                                <ListItem key={index}
-                                          index={index}
+                                <ListItem key={item.id}
+                                          id={item.id}
                                           text={item.text}
                                           active={item.active}
-                                          onClick={() => this.remove(index)}
+                                          remove={this.remove}
                                 />
                             );
                         })
