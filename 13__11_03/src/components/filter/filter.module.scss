@@ -1,0 +1,17 @@
+.wrapper {
+
+}
+
+.item {
+  display: inline-block;
+
+  cursor: pointer;
+
+  & + .item {
+    margin-left: 20px;
+  }
+
+  &.active {
+    color: blue;
+  }
+}
