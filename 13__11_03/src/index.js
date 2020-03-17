@@ -9,16 +9,25 @@ import {Provider} from "react-redux";
 import {createStore, combineReducers} from "redux";
 import {reducer} from "./store/reducer";
 import {filterReducer} from "./store/filterReducer";
+import {configureStore} from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({
-    phonesData: reducer,
-    filterData: filterReducer
+const store = configureStore({
+    reducer: {
+        phonesData: reducer,
+        filterData: filterReducer
+    }
 });
 
-const store = createStore(
-    rootReducer, /* preloadedState, */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+//
+// const rootReducer = combineReducers({
+//     phonesData: reducer,
+//     filterData: filterReducer
+// });
+//
+// const store = createStore(
+//     rootReducer, /* preloadedState, */
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 
 ReactDOM.render(
     <Provider store={store}>

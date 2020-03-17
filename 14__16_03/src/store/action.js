@@ -1,30 +1,18 @@
-import {createAction} from "@reduxjs/toolkit";
+export const CHANGE_FILTER = "a";
 
-export const changeFilterAction = createAction("type-create-action");
-
-// export const setPhonesAction = createAction("SET_PHONES");
-//
-// export const changeCheckedAction = createAction("CHANGE_CHECKED_ACTION");
-
-
-// export const CHANGE_FILTER = "a";
-// export const changeFilterAction = (filter) => {
-//     return {
-//         type: CHANGE_FILTER,
-//         payload: {
-//             filter
-//         }
-//     };
-// };
+export const changeFilterAction = (filter) => {
+    return {
+        type: CHANGE_FILTER,
+        filter
+    };
+};
 
 export const SET_PHONES = "SET_PHONESkjgasfjhgakjhfg";
 
 export const setPhonesAction = (phones) => {
     return {
         type: SET_PHONES,
-        payload: {
-            phones
-        }
+        phones
     };
 };
 
@@ -33,9 +21,7 @@ export const CHANGE_CHECKED = "c";
 export const changeCheckedAction = (id) => {
     return {
         type: CHANGE_CHECKED,
-        payload: {
-            id
-        }
+        id
     };
 };
 //

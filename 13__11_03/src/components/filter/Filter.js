@@ -33,7 +33,10 @@ const Filter = (props) => {
 
 const mSTP = state => {
     return {
-        filter: state.filterData.filter
+        filter: {
+            ...state.filterData.filter,
+            theme: "dark"
+        }
     };
 };
 
