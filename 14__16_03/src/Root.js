@@ -11,13 +11,13 @@ class Root extends React.Component {
     componentDidMount() {
         setTimeout(() => {
             this.props.changeFilterAction("htc");
-            this.props.setPhonesAction();
-            this.props.changeCheckedAction();
+            // this.props.setPhonesAction();
+            // this.props.changeCheckedAction();
         }, 1000);
 
         setTimeout(() => {
             this.props.changeFilterAction("apple");
-        }, 2000);
+        }, 3000);
 
 
     }

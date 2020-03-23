@@ -1,27 +1,32 @@
-export const CHANGE_FILTER = "CHANGE_FILTER";
-
+export const CHANGE_FILTER = "a";
 export const changeFilterAction = (filter) => {
     return {
         type: CHANGE_FILTER,
-        filter
+        payload: {
+            filter
+        }
     };
 };
 
-export const SET_PHONES = "SET_PHONES";
+export const SET_PHONES = "SET_PHONESkjgasfjhgakjhfg";
 
 export const setPhonesAction = (phones) => {
     return {
         type: SET_PHONES,
-        phones
+        payload: {
+            phones
+        }
     };
 };
 
-export const CHANGE_CHECKED = "CHANGE_CHECKED";
+export const CHANGE_CHECKED = "c";
 
 export const changeCheckedAction = (id) => {
     return {
         type: CHANGE_CHECKED,
-        id
+        payload: {
+            id
+        }
     };
 };
 //

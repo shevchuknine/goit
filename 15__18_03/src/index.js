@@ -9,19 +9,21 @@ import {Provider} from "react-redux";
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import {reducer} from "./store/reducer";
 import {filterReducer} from "./store/filterReducer";
-import {asyncMware, logger, payloadMware} from "./store/middleware";
 
-const rootReducer = combineReducers({
-    phonesData: reducer,
-    filterData: filterReducer
-});
+import thunk from "redux-thunk";
+import {reducerForAsyncActions} from "./store/reducerForAsyncActions";
 
-const middlewares = applyMiddleware(payloadMware, logger, asyncMware, changeFilterMware);
+// const rootReducer = combineReducers({
+//     phonesData: reducer,
+//     filterData: filterReducer
+// });
+
+const middlewares = applyMiddleware(thunk);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-    rootReducer,
+    reducerForAsyncActions, /* preloadedState, */
     composeEnhancers(middlewares)
 );
 
