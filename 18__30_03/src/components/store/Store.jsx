@@ -4,20 +4,20 @@ import {connect} from "react-redux";
 import styles from "./Store.module.scss";
 
 import List from "../list/List";
-import {selectInputValue} from "../../store/selectors";
-import {onChangeAction} from "../../store/action";
-import Filter from "../filter/Filter";
+import FilterContainerWrapped from "../filter/FilterContainer";
 
 class Store extends Component {
+    changeFilter = () => {};
+
     render() {
         return (
             <div className={styles.wrapper}>
                 <div>
-                    <Filter filterId={"main"}/>
+                    <FilterContainerWrapped filterId={"main"}/>
                     <List filterId={"main"}/>
                 </div>
                 <div>
-                    <Filter filterId={"additional"}/>
+                    <FilterContainerWrapped filterId={"additional"}/>
                     <List filterId={"additional"}/>
                 </div>
             </div>

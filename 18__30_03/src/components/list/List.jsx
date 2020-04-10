@@ -19,11 +19,19 @@ const List = (props) => {
     );
 };
 
-const mSTP = (state, ownProps) => {
-    return {
-        phones: selectFilteredPhones(state, ownProps)
-    };
+// 2
+const mSTP = () => {
+    const selector = selectFilteredPhones();
+    return (state, ownProps) => ({
+        phones: selector(state, ownProps)
+    })
 };
+
+// const mSTP = (state, ownProps) => {
+//     return {
+//         phones: selectFilteredPhones(state, ownProps)
+//     };
+// };
 
 
 export default connect(mSTP)(List);
